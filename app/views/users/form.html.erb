@@ -1,0 +1,19 @@
+<h3>
+  <%= user.persisted? ? 'edit' : 'new' %> user
+</h3>
+
+<%= form_for user, url: user_form_path(user) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :avatar %><br>
+    <%= f.hidden_field :avatar_cache %>
+    <%= image_tag(user.avatar_url) if user.avatar.present? %>
+    <%= f.file_field :avatar %>
+  </p>
+
+  <p><%= f.submit submit_value(user) %></p>
+<% end %>

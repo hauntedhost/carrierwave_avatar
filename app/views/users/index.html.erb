@@ -1,0 +1,10 @@
+<%= link_to('new user', new_user_path) %>
+
+<h3>users:</h3>
+<ul>
+  <% users.map do |user| %>
+    <li>
+      <%= link_to(user.name, edit_user_path(user)) %>
+    </li>
+  <% end %>
+</ul>
